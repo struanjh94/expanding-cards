@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    flex: 1; /* = flex-grow 1 flex-shrink 1 flex-basis 0%*/
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+    > h3 {
+        position: absolute;
+        font-size: 24px;
+        top: 20px;
+        left: 20px;
+        margin: 0;
+        opacity: 0;
+    }
+}
+
+.panel.active {
+    flex: 10;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+/* Mobile Screen Styling */
+@media (max-width: 480px) {
+    .container {
+        width: 100vw;
+    }
+    .panel:nth-of-type(4),.panel:nth-of-type(5) {
+        display: none; /*Just show 3 cards when the screen is small*/
+    }
+}
